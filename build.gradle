@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.1.3.RELEASE'
     id 'java'
+    
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -14,6 +15,9 @@ repositories {
 }
 
 dependencies {
+    //external dependencies
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    //linijka dodana Test dependencies
+    testCompile ('junit:junit:4.12')
 }
