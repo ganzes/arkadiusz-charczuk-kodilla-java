@@ -25,7 +25,7 @@ public class CollectionTestSuite {
 
         System.out.println(x.exterminate(jaha));
 
-        Assert.assertEquals(x.exterminate(jaha), jaha);
+        Assert.assertEquals(jaha, x.exterminate(jaha));
     }
 
     @Test
@@ -39,13 +39,13 @@ public class CollectionTestSuite {
 
         OddNumbersExterminator x = new OddNumbersExterminator();
 
-        System.out.println(x.exterminate(jaha));
+        System.out.println(x.exterminate(jaha));//to otrzymuje
 
-        ArrayList <Integer> checkWJ = new ArrayList<>();
+        ArrayList <Integer> checkWJ = new ArrayList<>();//tego oczekuje
         checkWJ.add(44);
         checkWJ.add(20);
 
-        Assert.assertEquals(x.exterminate(jaha), checkWJ);
+        Assert.assertEquals(checkWJ, x.exterminate(jaha));//zapis odwrotny, najpierw expected, potem actual
     }
 }
 
