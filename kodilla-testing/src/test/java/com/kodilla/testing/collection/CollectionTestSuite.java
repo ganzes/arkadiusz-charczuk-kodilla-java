@@ -1,7 +1,8 @@
-package com.kodilla.testing.collection;
+package com.kodilla.testing.collection.;
+
+import java.util.ArrayList;
 
 import com.kodilla.testing.collection.OddNumbersExterminator;
-import java.util.ArrayList;
 import org.junit.*;
 
 public class CollectionTestSuite {
@@ -23,6 +24,8 @@ public class CollectionTestSuite {
         OddNumbersExterminator x = new OddNumbersExterminator();
 
         System.out.println(x.exterminate(jaha));
+
+        Assert.assertEquals(x.exterminate(jaha), jaha);
     }
 
     @Test
@@ -38,5 +41,11 @@ public class CollectionTestSuite {
 
         System.out.println(x.exterminate(jaha));
 
+        ArrayList <Integer> checkWJ = new ArrayList<>();
+        checkWJ.add(44);
+        checkWJ.add(20);
+
+        Assert.assertEquals(x.exterminate(jaha), checkWJ);
     }
 }
+
