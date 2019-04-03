@@ -1,16 +1,14 @@
 package com.kodilla.testing.shape;
 
-public class Triangle implements Shape{
+public class Square implements Shape {
 
-    double base;
-    double height;
+    double side;
 
-    String shapeName = "triangle";
-    double field = (base*height)/2;
+    String shapeName = "square";
+    double field = side*side;
 
-    public Triangle(double base, double height) {
-        this.base = base;
-        this.height = height;
+    public Square(double side) {
+        this.side = side;
     }
 
     @Override
@@ -26,14 +24,13 @@ public class Triangle implements Shape{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Triangle)) return false;
+        if (!(o instanceof Square)) return false;
 
-        Triangle triangle = (Triangle) o;
+        Square square = (Square) o;
 
-        if (Double.compare(triangle.base, base) != 0) return false;
-        if (Double.compare(triangle.height, height) != 0) return false;
-        if (Double.compare(triangle.getField(), getField()) != 0) return false;
-        return getShapeName().equals(triangle.getShapeName());
+        if (Double.compare(square.side, side) != 0) return false;
+        if (Double.compare(square.getField(), getField()) != 0) return false;
+        return getShapeName().equals(square.getShapeName());
 
     }
 
@@ -41,10 +38,8 @@ public class Triangle implements Shape{
     public int hashCode() {
         int result;
         long temp;
-        temp = Double.doubleToLongBits(base);
+        temp = Double.doubleToLongBits(side);
         result = (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(height);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + getShapeName().hashCode();
         temp = Double.doubleToLongBits(getField());
         result = 31 * result + (int) (temp ^ (temp >>> 32));
