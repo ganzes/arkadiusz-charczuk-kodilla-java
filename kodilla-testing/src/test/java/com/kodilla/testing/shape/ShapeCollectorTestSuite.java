@@ -2,8 +2,90 @@ package com.kodilla.testing.shape;
 
 import org.junit.*;
 
-import java.util.ArrayList;
+public class ShapeCollectorTestSuite {
 
+    private static int testCounter = 0;
+
+    private ShapeCollector x; //zdefiniowal ShapeCollector
+    // | w tej klasie mam ShapeCollector i nazywam go x | mam pole ShapeCollector o nazwie x
+    //odnosi sie do ShapeCollector > ArrayList <Shape> x = new ArrayList<Shape>();
+
+    @BeforeClass
+    public static void beforeAllTests(){
+        System.out.println("Poczatek testu");
+    }
+
+    @AfterClass
+    public static void afterAllTests(){
+        System.out.println("Koniec testow.");
+    }
+
+    @Before
+    public void beforeEveryTest(){
+        testCounter++;
+
+        System.out.println("Przygotowanie do rozpoczecia testu #" + testCounter);
+    }
+
+    @Test
+    public void testaddFigure() {
+        //Given
+        ShapeCollector shapeCollector = new ShapeCollector("kolko","kwadrat","trojkat");
+        //When
+        shapeCollector.addFigure(new Circle(54));
+
+        //Then
+        Assert.assertEquals(1, shapeCollector.showFigures());
+    }
+
+    @Test
+    public void testremoveFigure() {
+        //Given
+        ShapeCollector shapeCollector = new ShapeCollector("circle", "sqare", "traingle");
+
+        shapeCollector.removeFigure(new Circle(54));
+
+        //When
+        boolean result = shapeCollector.removeFigure(new Circle(54));
+
+        //Then
+        Assert.assertEquals(0, shapeCollector.showFigures());
+    }
+
+    @Test
+    public void testgetFigure() {
+        //Given
+        ShapeCollector dodacElement = new ShapeCollector("kolko","kwadrat","trojkat");
+        Circle aTerazGoPobrac = new Circle(4);
+        Circle aTerazGoPobrac2 = new Circle(5);
+        Circle aTerazGoPobrac3 = new Circle(6);
+
+        dodacElement.addFigure(aTerazGoPobrac);
+        dodacElement.addFigure(aTerazGoPobrac2);
+        dodacElement.addFigure(aTerazGoPobrac3);
+
+        //When
+        Shape zostaniePobranyElement;
+        zostaniePobranyElement = dodacElement.getFigure(0);
+
+        //Then
+        Assert.assertEquals(aTerazGoPobrac, zostaniePobranyElement);
+    }
+
+    @Test
+    public void testshowFigures() {
+        //Given
+        ShapeCollector shapeCollector = new ShapeCollector("circle", "sqare", "traingle");
+        //When
+        shapeCollector.addFigure(new Circle(54));
+        //Then
+        Assert.assertEquals(1, shapeCollector.showFigures());
+    }
+
+
+}
+
+/*
 public class ShapeCollectorTestSuite {
 
     private static int testCounter = 0;
@@ -83,3 +165,4 @@ public class ShapeCollectorTestSuite {
         Assert.assertArrayEquals(start.toArray(), x.showFigures().toArray());
     }
 }
+ */
