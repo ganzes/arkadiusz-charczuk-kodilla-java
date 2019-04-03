@@ -1,8 +1,8 @@
-package com.kodilla.testing.collection.;
+package com.kodilla.testing.collection;
 
 import java.util.ArrayList;
 
-import com.kodilla.testing.collection.OddNumbersExterminator;
+
 import org.junit.*;
 
 public class CollectionTestSuite {
@@ -48,4 +48,3 @@ public class CollectionTestSuite {
         Assert.assertEquals(checkWJ, x.exterminate(jaha));//zapis odwrotny, najpierw expected, potem actual
     }
 }
-
