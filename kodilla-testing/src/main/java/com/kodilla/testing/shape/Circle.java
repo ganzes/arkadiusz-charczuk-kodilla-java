@@ -1,6 +1,7 @@
 package com.kodilla.testing.shape;
 
-public class Circle implements Shape {
+public class Circle implements Shape {//Utwórz klasy reprezentujące poszczególne
+    // figury — posiadające już właściwe implementacje metod interfejsu.
 
     double radius;
 
@@ -12,12 +13,12 @@ public class Circle implements Shape {
     }
 
     @Override
-    public String getShapeName() {
+    public String getShapeName() {//zwraca nazwe figury
         return shapeName;
     }
 
     @Override
-    public double getField() {
+    public double getField() {//zwraca obliczone pole figury
         return field;
     }
 

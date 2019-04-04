@@ -2,33 +2,57 @@ package com.kodilla.testing.shape;
 
 import java.util.*;
 
-public class ShapeCollector {
-    private String circleName;
-    private String squareName;
-    private String triangleName;
-    private ArrayList <Shape> circles = new ArrayList<Shape>();
-    private ArrayList <Shape> squares = new ArrayList<Shape>();
-    private ArrayList <Shape> triangles = new ArrayList<Shape>();
+public class ShapeCollector {//Utwórz klasę ShapeCollector z metodami:
+    // addFigure(Shape shape), removeFigure(Shape shape), getFigure(int n)
+    // oraz showFigures().
 
-    public ShapeCollector(String circleName, String squareName, String triangleName){
-        //nazwa figury 1
-        this.circleName = circleName;
-        //nazwa figury 2
-        this.squareName = squareName;
-        //nazwa figury 3
-        this.triangleName = triangleName;
+    private ArrayList<Shape> kolekcjaFigur = new ArrayList<>();//Klasa ta przechowuje figury geometryczne w kolekcji ArrayList.
+
+    public ArrayList<Shape> getFiguresCollection() {
+        return kolekcjaFigur;
     }
 
-    public void addFigure(Shape circle){//dodaj figure | metody nei wiedza co jest w srodku w obrebie danej klasy i tyczy sie kazdej metody w klasie
+    public void addFigure(Shape shape){
+        kolekcjaFigur.add(shape);
+    }
+
+    public boolean removeFigure(Shape shape){
+        return kolekcjaFigur.remove(shape);
+    }
+
+    public Shape getFigure(int n){
+        if(n<kolekcjaFigur.size() && n>=0){
+            return kolekcjaFigur.get(n);
+        } else {
+            return null;
+        }
+    }
+
+    public void showFigures(){
+        System.out.println(kolekcjaFigur.toString());
+    }
+}
+
+
+
+/*
+    private ArrayList <Shape> figury = new ArrayList<>();
+
+    public ShapeCollector(){
+    }
+
+    public void addFigure(Shape figury){//dodaj figure | metody nei wiedza co jest w srodku w obrebie danej klasy i tyczy sie kazdej metody w klasie
         //(Shape shape) < Shape moze byc obojetnie co, obojetnie jaka nazwa
         Shape circle11 = new Circle(54);
-        circles.add(circle11);
+        figury.add(circle11);
+
+
     }
 
-    public boolean removeFigure(Shape circle11){//usun figure
+    public boolean removeFigure(Shape figury){//usun figure
         boolean result = false;
-        if (circles.contains(circle11)){
-            circles.remove(circle11);
+        if (figury.contains(circle11)){
+            figury.remove(circle11);
             result = true;
         }
         return result;
@@ -36,46 +60,20 @@ public class ShapeCollector {
 
     public Shape getFigure(int n){//wez figure
         Shape theShape = null;
-        if (n >= 0 && n < circles.size()) {
-            theShape = circles.get(n);
+        if (n >= 0 && n < figury.size()) {
+            theShape = figury.get(n);
         }
         return theShape;
     }
 
     public int showFigures(){
-        return circles.size();
+        return figury.size();
     }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ShapeCollector)) return false;
-
-        ShapeCollector that = (ShapeCollector) o;
-
-        if (!circleName.equals(that.circleName)) return false;
-        if (!squareName.equals(that.squareName)) return false;
-        if (!triangleName.equals(that.triangleName)) return false;
-        if (!circles.equals(that.circles)) return false;
-        if (!squares.equals(that.squares)) return false;
-        return triangles.equals(that.triangles);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = circleName.hashCode();
-        result = 31 * result + squareName.hashCode();
-        result = 31 * result + triangleName.hashCode();
-        result = 31 * result + circles.hashCode();
-        result = 31 * result + squares.hashCode();
-        result = 31 * result + triangles.hashCode();
-        return result;
-    }
 }
 
-
+*/
 
 //Klasa ta przechowuje figury geometryczne w kolekcji ArrayList.
 // Figury są następujące: kwadrat, koło, trójkąt (oczywiście użyj angielskich nazw klas).

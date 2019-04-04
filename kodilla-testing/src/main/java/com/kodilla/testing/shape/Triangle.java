@@ -1,6 +1,7 @@
 package com.kodilla.testing.shape;
 
-public class Triangle implements Shape{
+public class Triangle implements Shape{//Utwórz klasy reprezentujące poszczególne figury —
+    // posiadające już właściwe implementacje metod interfejsu.
 
     double base;
     double height;

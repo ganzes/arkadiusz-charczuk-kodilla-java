@@ -2,6 +2,9 @@ package com.kodilla.testing.shape;
 
 import org.junit.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShapeCollectorTestSuite {
 
     private static int testCounter = 0;
@@ -12,74 +15,73 @@ public class ShapeCollectorTestSuite {
 
     @BeforeClass
     public static void beforeAllTests(){
-        System.out.println("Poczatek testu");
+        System.out.println("Poczatek testow masla maslanego");
     }
 
     @AfterClass
     public static void afterAllTests(){
-        System.out.println("Koniec testow.");
+        System.out.println("Koniec testow masla maslanego");
     }
 
     @Before
     public void beforeEveryTest(){
         testCounter++;
 
-        System.out.println("Przygotowanie do rozpoczecia testu #" + testCounter);
+        System.out.println("Przygotowanie do rozpoczecia testu maselka maslanego #" + testCounter);
     }
 
     @Test
     public void testaddFigure() {
         //Given
-        ShapeCollector shapeCollector = new ShapeCollector("kolko","kwadrat","trojkat");
+        ShapeCollector masloMaslane = new ShapeCollector();//masloMaslane posiada wlasciwosci ShapeCollector
         //When
-        shapeCollector.addFigure(new Circle(54));
+        masloMaslane.addFigure(new Circle(54));//wiec dodaje obiekty - tutaj, dodaje kolko
 
         //Then
-        Assert.assertEquals(1, shapeCollector.showFigures());
+        Assert.assertEquals(1, masloMaslane.getFiguresCollection().size());//wiec biore rozmiar listy i porownuje
     }
 
     @Test
     public void testremoveFigure() {
         //Given
-        ShapeCollector shapeCollector = new ShapeCollector("circle", "sqare", "traingle");
+        ShapeCollector masloMaslane = new ShapeCollector();
 
-        shapeCollector.removeFigure(new Circle(54));
+        masloMaslane.addFigure(new Circle(54));//dodaje, bo musze cos usunac
 
         //When
-        boolean result = shapeCollector.removeFigure(new Circle(54));
+        boolean result = masloMaslane.removeFigure(new Circle(54));//usowam dodany obiekt
 
         //Then
-        Assert.assertEquals(0, shapeCollector.showFigures());
+        Assert.assertEquals(0, masloMaslane.getFiguresCollection().size());//porownuje z rozmiarem maslaMaslanego
     }
 
     @Test
     public void testgetFigure() {
         //Given
-        ShapeCollector dodacElement = new ShapeCollector("kolko","kwadrat","trojkat");
-        Circle aTerazGoPobrac = new Circle(4);
-        Circle aTerazGoPobrac2 = new Circle(5);
-        Circle aTerazGoPobrac3 = new Circle(6);
-
-        dodacElement.addFigure(aTerazGoPobrac);
-        dodacElement.addFigure(aTerazGoPobrac2);
-        dodacElement.addFigure(aTerazGoPobrac3);
+        ShapeCollector masloMaslane = new ShapeCollector();
+        Shape circle = new Circle(54);//
+        masloMaslane.addFigure(circle);//do maselka dodaje obierkt circle
 
         //When
-        Shape zostaniePobranyElement;
-        zostaniePobranyElement = dodacElement.getFigure(0);
-
+        Shape circles1 = masloMaslane.getFigure(0);//wiec skoro dodalem obiekt circle, to
         //Then
-        Assert.assertEquals(aTerazGoPobrac, zostaniePobranyElement);
+        Assert.assertEquals(circle,circles1);
     }
 
     @Test
     public void testshowFigures() {
         //Given
-        ShapeCollector shapeCollector = new ShapeCollector("circle", "sqare", "traingle");
+        ShapeCollector masloMaslane = new ShapeCollector();
+        Shape shape = new Circle(54);
+        masloMaslane.addFigure(shape);
+
+        ArrayList<Shape> newList = new ArrayList<>();
+        newList.add(shape);
+
         //When
-        shapeCollector.addFigure(new Circle(54));
+        List<Shape> shapesList = masloMaslane.getFiguresCollection();
         //Then
-        Assert.assertEquals(1, shapeCollector.showFigures());
+        Assert.assertEquals(newList.toString(), shapesList.toString());
     }
 
 
