@@ -23,11 +23,11 @@ public class ComputeStatisticsTestSuite {
         for (int i=0; i<10; i++){
             listMock.add("Users");
         }
-        when(statisticsMock.usersNames().thenReturn(listMock));
-        when(statisticsMock.postsCount().thenReturn(50));
-        when(statisticsMock.commentsCount().thenReturn(100));
-        computeStatistics = new ComputeStatistics();
 
+        when(statisticsMock.usersNames()).thenReturn(listMock);
+        when(statisticsMock.postsCount()).thenReturn(50);
+        when(statisticsMock.commentsCount()).thenReturn(100);
+        computeStatistics = new ComputeStatistics();
     }
     @Test
     public void testZeroPosts(){//gdy liczba postow 0

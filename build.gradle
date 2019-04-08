@@ -25,5 +25,6 @@ dependencies {
     testCompile ('junit:junit:4.12')
     // https://mvnrepository.com/artifact/org.mockito/mockito-all
     testCompile (group: 'org.mockito', name: 'mockito-all', version: '1.10.19')
+    testCompile('org.mockito:mockito-all:1.10.19')
 
 }
