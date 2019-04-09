@@ -1,7 +1,5 @@
-package com.kodilla.testing.statistics;
+package com.kodilla.testing.forum.statistics;
 
-import com.kodilla.testing.forum.statistics.ComputeStatistics;
-import com.kodilla.testing.forum.statistics.Statistics;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,110 +15,144 @@ public class ComputeStatisticsTestSuite {
     private ComputeStatistics computeStatistics;
 
     @Before
-    public void beforeTest(){
+    public void beforeTest() {
         statisticsMock = mock(Statistics.class);
         List<String> listMock = new ArrayList<>();
 
-        for (int i=0; i<10; i++){
+        for (int i = 0; i < 10; i++) {//ustawiam sobie tutaj liczbe uzytkownikow
             listMock.add("Users");
         }
 
-        when(statisticsMock.usersNames()).thenReturn(listMock);
-        when(statisticsMock.postsCount()).thenReturn(50);
-        when(statisticsMock.commentsCount()).thenReturn(100);
+        when(statisticsMock.usersNames()).thenReturn(listMock);//zwraca mi liste uzytkownikow na podstawie size obiektow listy listMock
+        when(statisticsMock.postsCount()).thenReturn(0);//zwraca mi liczbe postow
+        when(statisticsMock.commentsCount()).thenReturn(0);//zwraca mi liczbe komentarzy
         computeStatistics = new ComputeStatistics();
     }
-    @Test
-    public void testZeroPosts(){//gdy liczba postow 0
-        //Given
-        when(statisticsMock.postsCount()).thenReturn(0);
-        //When
-        computeStatistics.calculateAdvStatistics(statisticsMock);
-        //Then
-        assertEquals(0, computeStatistics.getPostsQuantity());
-        assertEquals(0, computeStatistics.getPostsQuantity());
-        assertEquals(100, computeStatistics.getCommentsQuantity());
-    }
 
+    //Przetestuj poprawność obliczeń wartości średnich dla różnych przypadków:
     @Test
-    public void testThousandPosts(){//gdy liczba postow 1000
-        //Given
-        when(statisticsMock.postsCount()).thenReturn(1000);
-        //When
-        computeStatistics.calculateAdvStatistics(statisticsMock);
-        //Then
-        assertEquals(1000, computeStatistics.getPostsQuantity());
-        assertEquals(100, computeStatistics.getAveragePostsUsers(), 0.01);
-        assertEquals(0.1, computeStatistics.getAverageCommentsPosts(), 0.01);
-    }
-
-    @Test
-    public void testZeroComments(){//gdy 0 komentarzy
-        //Given
-        when(statisticsMock.commentsCount()).thenReturn(0);
-        //When
-        computeStatistics.calculateAdvStatistics(statisticsMock);
-        //Then
-        assertEquals(0, computeStatistics.getCommentsQuantity());
-        assertEquals(0, computeStatistics.getAverageCommentsUsers(),0.01);
-        assertEquals(0, computeStatistics.getAverageCommentsPosts(),0.01);
-    }
-
-    @Test
-    public void testCommentsLessThanPosts(){//gdy komentarzy mniej niz postow
-        //Given
-        when(statisticsMock.commentsCount()).thenReturn(10);
-        when(statisticsMock.postsCount()).thenReturn(2);
-        //When
-        computeStatistics.calculateAdvStatistics(statisticsMock);
-        //Then
-        assertEquals(2, computeStatistics.getPostsQuantity());
-        assertEquals(10, computeStatistics.getCommentsQuantity());
-        assertEquals(0.2, computeStatistics.getAveragePostsUsers(),0.01);
-        assertEquals(1.0, computeStatistics.getAverageCommentsUsers(),0.01);
-        assertEquals(5.0, computeStatistics.getAverageCommentsPosts(),0.01);
-    }
-
-    @Test
-    public void testCommentsMoreThanPosts(){//gdy komentrzy wiecej niz postow
-        //Given
-
-        //When
-        computeStatistics.calculateAdvStatistics(statisticsMock);
-        //Then
-        assertEquals(50, computeStatistics.getPostsQuantity());
-        assertEquals(100, computeStatistics.getCommentsQuantity());
-        assertEquals(5.0, computeStatistics.getAveragePostsUsers(),0.01);
-        assertEquals(10.0, computeStatistics.getAverageCommentsUsers(),0.01);
-        assertEquals(2.0, computeStatistics.getAverageCommentsPosts(),0.01);
-    }
-
-    @Test
-    public void testZeroUsers(){//gdy zero uzytkownikow
-        //Given
-        List<String>listMock = new ArrayList<>();
-        when(statisticsMock.usersNames()).thenReturn(listMock);
-        //When
-        computeStatistics.calculateAdvStatistics(statisticsMock);
-        //Then
-        assertEquals(0, computeStatistics.getUsersQuantity());
-        assertEquals(0, computeStatistics.getAveragePostsUsers(),0.01);
-        assertEquals(0, computeStatistics.getAverageCommentsUsers(),0.01);
-    }
-
-    @Test
-    public void testOnehundredUsers(){//gdy 100 uzytkownikow
+    public void testZeroPosts() {//gdy liczba postow 0
         //Given
         List<String> listMock = new ArrayList<>();
-        for(int i=0; i<100; i++){
+        for (int i = 0; i < 10; i++) {
             listMock.add("Users");
         }
-        when(statisticsMock.usersNames()).thenReturn(listMock);
         //When
+        when(statisticsMock.usersNames()).thenReturn(listMock);//dla 10 uzytkownikow
+        when(statisticsMock.postsCount()).thenReturn(0);// dla 0 postow
+        when(statisticsMock.commentsCount()).thenReturn(10);//dla 10 komentarzy
         computeStatistics.calculateAdvStatistics(statisticsMock);
         //Then
-        assertEquals(100, computeStatistics.getUsersQuantity());
-        assertEquals(0.5, computeStatistics.getAveragePostsUsers(),0.01);
-        assertEquals(1.0, computeStatistics.getAverageCommentsUsers(),0.01);
+        assertEquals(0, computeStatistics.getAverageCommentsPosts(), 0.01);//srednia komentarzy z postami
+        assertEquals(1.0, computeStatistics.getAverageCommentsUsers(), 0.01);//srednia komentarzy z userami
+        assertEquals(0, computeStatistics.getAveragePostsUsers(), 0.01);//srednia postow z userami
+    }
+
+    @Test
+    public void testThousandPosts() {//gdy liczba postow 1000
+        //Given
+        List<String> listMock = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            listMock.add("Users");
+        }
+        //When
+        when(statisticsMock.usersNames()).thenReturn(listMock);//dla 10 uzytkownikow
+        when(statisticsMock.postsCount()).thenReturn(1000);// dla 1000 postow
+        when(statisticsMock.commentsCount()).thenReturn(10);//dla 10 komentarzy
+        computeStatistics.calculateAdvStatistics(statisticsMock);
+        //Then
+        assertEquals(0, computeStatistics.getAverageCommentsPosts(), 0.01);//srednia komentarzy z postami
+        assertEquals(1.0, computeStatistics.getAverageCommentsUsers(), 0.01);//srednia komentarzy z userami
+        assertEquals(100.0, computeStatistics.getAveragePostsUsers(), 0.01);//srednia postow z userami
+    }
+
+    @Test
+    public void testZeroComments() {//gdy 0 komentarzy
+        //Given
+        List<String> listMock = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            listMock.add("Users");
+        }
+        //When
+        when(statisticsMock.usersNames()).thenReturn(listMock);//dla 10 uzytkownikow
+        when(statisticsMock.postsCount()).thenReturn(0);// dla 0 postow
+        when(statisticsMock.commentsCount()).thenReturn(0);//dla 0 komentarzy
+        computeStatistics.calculateAdvStatistics(statisticsMock);
+        //Then
+        assertEquals(0, computeStatistics.getAverageCommentsPosts(), 0.01);//srednia komentarzy z postami
+        assertEquals(0, computeStatistics.getAverageCommentsUsers(), 0.01);//srednia komentarzy z userami
+        assertEquals(0, computeStatistics.getAveragePostsUsers(), 0.01);//srednia postow z userami
+    }
+
+    @Test
+    public void testCommentsLessThanPosts() {//gdy komentarzy mniej niz postow
+        //Given
+        List<String> listMock = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            listMock.add("Users");
+        }
+        //When
+        when(statisticsMock.usersNames()).thenReturn(listMock);//dla 10 uzytkownikow
+        when(statisticsMock.postsCount()).thenReturn(8);// dla 8 postow
+        when(statisticsMock.commentsCount()).thenReturn(4);//dla 4 komentarzy
+        computeStatistics.calculateAdvStatistics(statisticsMock);
+        //Then
+        assertEquals(0.5, computeStatistics.getAverageCommentsPosts(), 0.01);//srednia komentarzy z postami
+        assertEquals(0.4, computeStatistics.getAverageCommentsUsers(), 0.01);//srednia komentarzy z userami
+        assertEquals(0.8, computeStatistics.getAveragePostsUsers(), 0.01);//srednia postow z userami
+    }
+
+    @Test
+    public void testCommentsMoreThanPosts() {//gdy komentrzy wiecej niz postow
+        //Given
+        List<String> listMock = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            listMock.add("Users");
+        }
+        //When
+        when(statisticsMock.usersNames()).thenReturn(listMock);//dla 10 uzytkownikow
+        when(statisticsMock.postsCount()).thenReturn(8);// dla 8 postow
+        when(statisticsMock.commentsCount()).thenReturn(12);//dla 12 komentarzy
+        computeStatistics.calculateAdvStatistics(statisticsMock);
+        //Then
+        assertEquals(1.5, computeStatistics.getAverageCommentsPosts(), 0.01);//srednia komentarzy z postami
+        assertEquals(1.2, computeStatistics.getAverageCommentsUsers(), 0.01);//srednia komentarzy z userami
+        assertEquals(0.8, computeStatistics.getAveragePostsUsers(), 0.01);//srednia postow z userami
+    }
+
+    @Test
+    public void testZeroUsers() {//gdy zero uzytkownikow
+        //Given
+        List<String> listMock = new ArrayList<>();
+        for (int i = 0; i <= 0; i++) {
+            listMock.add("Users");
+        }
+        //When
+        when(statisticsMock.usersNames()).thenReturn(listMock);//dla 0 uzytkownikow
+        when(statisticsMock.postsCount()).thenReturn(8);// dla 8 postow
+        when(statisticsMock.commentsCount()).thenReturn(12);//dla 12 komentarzy
+        computeStatistics.calculateAdvStatistics(statisticsMock);
+        //Then
+        assertEquals(1.5, computeStatistics.getAverageCommentsPosts(), 0.01);//srednia komentarzy z postami
+        assertEquals(12, computeStatistics.getAverageCommentsUsers(), 0.01);//srednia komentarzy z userami
+        assertEquals(8.0, computeStatistics.getAveragePostsUsers(), 0.01);//srednia postow z userami
+    }
+
+    @Test
+    public void testOnehundredUsers() {//gdy 100 uzytkownikow
+        //Given
+        List<String> listMock = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            listMock.add("Users");
+        }
+        //When
+        when(statisticsMock.usersNames()).thenReturn(listMock);//dla 0 uzytkownikow
+        when(statisticsMock.postsCount()).thenReturn(8);// dla 8 postow
+        when(statisticsMock.commentsCount()).thenReturn(12);//dla 12 komentarzy
+        computeStatistics.calculateAdvStatistics(statisticsMock);
+        //Then
+        assertEquals(1.5, computeStatistics.getAverageCommentsPosts(), 0.01);//srednia komentarzy z postami
+        assertEquals(0.12, computeStatistics.getAverageCommentsUsers(), 0.01);//srednia komentarzy z userami
+        assertEquals(0.08, computeStatistics.getAveragePostsUsers(), 0.01);//srednia postow z userami
     }
 }
