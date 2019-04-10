@@ -157,18 +157,18 @@ public class BookDirectoryTestSuite {
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class); //tworzymy mocka interfejsu LibraryDatabase,
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);//tutaj go wstrzykujemy
 
-        List<Book> borrowedBooksZeroByUser = generateListOfNBooks(1); //tutaj tworzymy liste wypozyczonych ksiazek, tu 0
+        List<Book> borrowedBooksOneByUser = generateListOfNBooks(1); //tutaj tworzymy liste wypozyczonych ksiazek, tu 1
         // When
-        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(borrowedBooksZeroByUser);
+        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(borrowedBooksOneByUser);
 
         LibraryUser libraryUserAl = new LibraryUser("Al", "Bundy", "216320");//lista uzytkownika, w tym wypadku
         //uzytkownika
 
 
-        List<Book> borrowedBooksZeroByUserAlBundy = bookLibrary.listBooksInHandsOf(libraryUserAl);
+        List<Book> borrowedBooksOneByUserAlBundy = bookLibrary.listBooksInHandsOf(libraryUserAl);
 
         // Then
-        assertEquals(1, borrowedBooksZeroByUserAlBundy.size());
+        assertEquals(1, borrowedBooksOneByUserAlBundy.size());
 
     }
 
@@ -178,18 +178,18 @@ public class BookDirectoryTestSuite {
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class); //tworzymy mocka interfejsu LibraryDatabase,
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);//tutaj go wstrzykujemy
 
-        List<Book> borrowedBooksZeroByUser = generateListOfNBooks(5); //tutaj tworzymy liste wypozyczonych ksiazek, tu 0
+        List<Book> borrowedBooksFiveByUser = generateListOfNBooks(5); //tutaj tworzymy liste wypozyczonych ksiazek, tu 5
         // When
-        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(borrowedBooksZeroByUser);
+        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(borrowedBooksFiveByUser);
 
         LibraryUser libraryUserAl = new LibraryUser("Al", "Bundy", "216320");//lista uzytkownika, w tym wypadku
         //uzytkownika
 
 
-        List<Book> borrowedBooksZeroByUserAlBundy = bookLibrary.listBooksInHandsOf(libraryUserAl);
+        List<Book> borrowedBooksFiveByUserAlBundy = bookLibrary.listBooksInHandsOf(libraryUserAl);
 
         // Then
-        assertEquals(5, borrowedBooksZeroByUserAlBundy.size());
+        assertEquals(5, borrowedBooksFiveByUserAlBundy.size());
 
     }
 }
