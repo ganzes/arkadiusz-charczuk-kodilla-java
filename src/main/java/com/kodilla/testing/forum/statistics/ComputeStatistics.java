@@ -2,7 +2,6 @@ package com.kodilla.testing.forum.statistics;
 
 public class ComputeStatistics {//klasa obliczajaca statystyki
 
-
     private int usersQuantity;
     private int postsQuantity;
     private int commentsQuantity;

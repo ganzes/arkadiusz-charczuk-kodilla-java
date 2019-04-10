@@ -16,8 +16,9 @@ public class ComputeStatisticsTestSuite {
 
     @Before
     public void beforeTest() {
-        statisticsMock = mock(Statistics.class);
-        List<String> listMock = new ArrayList<>();
+        statisticsMock = mock(Statistics.class);//w tej linii tworzony jest mock interfejsu statistics, gdzie
+        //tym zmiennerj | nazwa zmiennej | = wywołanie metody mock klasy Mockito | (interfejs lub klasa. | wywolanie deskryptora klasy lub interfejsu
+        List<String> listMock = new ArrayList<>();//lista uzytkownikow w postaci listyMock
 
         for (int i = 0; i < 10; i++) {//ustawiam sobie tutaj liczbe uzytkownikow
             listMock.add("Users");
