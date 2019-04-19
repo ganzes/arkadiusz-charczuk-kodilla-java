@@ -1,4 +1,4 @@
-package com.kodilla.stream.book;
+package stream.book;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.kodilla.stream.iterate;
+package stream.iterate;
 
-import java.util.stream.*;//importujemy bibliotekę java.util.stream
+import java.util.stream.Stream;
 
 public final class NumbersGenerator {
     public static void generateEven(int max) {//tworzymy statyczną metodę generateEven(int max), której zadaniem

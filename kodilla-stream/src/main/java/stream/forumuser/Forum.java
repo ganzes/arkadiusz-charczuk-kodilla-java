@@ -1,4 +1,4 @@
-package com.kodilla.stream.forumuser;
+package stream.forumuser;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

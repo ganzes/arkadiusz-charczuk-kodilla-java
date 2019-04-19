@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.testing.shape.ShapeCollectorTestSuite" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-04-15T18:50:25" hostname="Amanda" time="0.002">
+<testsuite name="com.kodilla.testing.shape.ShapeCollectorTestSuite" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-04-17T20:05:38" hostname="Amanda" time="0.003">
   <properties/>
   <testcase name="testaddFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.001"/>
   <testcase name="testgetFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.0"/>
   <testcase name="testremoveFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.0"/>
-  <testcase name="testshowFigures" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.001"/>
+  <testcase name="testshowFigures" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.0"/>
   <system-out><![CDATA[Poczatek testow masla maslanego
 Przygotowanie do rozpoczecia testu maselka maslanego #1
 Przygotowanie do rozpoczecia testu maselka maslanego #2

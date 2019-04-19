@@ -1,4 +1,4 @@
-package com.kodilla.stream.book;
+package stream.book;
 
 public final class Book {
     private final String author;
