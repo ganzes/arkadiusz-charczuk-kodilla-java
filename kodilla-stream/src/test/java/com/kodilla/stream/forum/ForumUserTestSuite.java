@@ -2,6 +2,7 @@ package com.kodilla.stream.forum;
 
 import org.junit.Assert;
 import org.junit.Test;
+import stream.forum.ForumUser;
 
 public class ForumUserTestSuite {
     @Test

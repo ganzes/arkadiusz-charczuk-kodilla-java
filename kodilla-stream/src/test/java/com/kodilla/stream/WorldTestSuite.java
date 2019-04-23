@@ -1,7 +1,10 @@
-package com.kodilla.stream.world;
+package com.kodilla.stream;
 
 import org.junit.Assert;
 import org.junit.Test;
+import stream.world.Continent;
+import stream.world.Country;
+import stream.world.World;
 
 import java.math.BigDecimal;
 
@@ -20,13 +23,13 @@ public class WorldTestSuite {
         Country armenia = new Country("Armenia", BigDecimal.valueOf(2924816));
         Country bhutan = new Country("Bhutan", BigDecimal.valueOf(727145));
 
-        Country germany = new Country("Germany", BigDecimal.valueOf(10));
-        Country sweden = new Country("Sweden", BigDecimal.valueOf(10));
-        Country switzerland = new Country("Switzerland", BigDecimal.valueOf(10));
+        Country germany = new Country("Germany", BigDecimal.valueOf(83000000));
+        Country sweden = new Country("Sweden", BigDecimal.valueOf(10223505));
+        Country switzerland = new Country("Switzerland", BigDecimal.valueOf(8508898));
 
-        Country usa = new Country("USA", BigDecimal.valueOf(10));
-        Country mexico = new Country("Mexico", BigDecimal.valueOf(10));
-        Country cuba = new Country("Cuba", BigDecimal.valueOf(10));
+        Country usa = new Country("USA", BigDecimal.valueOf(327167434));
+        Country mexico = new Country("Mexico", BigDecimal.valueOf(126577691));
+        Country cuba = new Country("Cuba", BigDecimal.valueOf(11221060));
 
         World world = new World();
 
@@ -46,21 +49,15 @@ public class WorldTestSuite {
         world.addContinentWorld(asia);
         world.addContinentWorld(northAmerica);
 
-
-
-
-
         //Given
         BigDecimal allPeopleQuantity = world.getPeopleQuantity();
 
         //When
 
-        BigDecimal allPeopleExpected = new BigDecimal("90");
+        BigDecimal allPeopleExpected = new BigDecimal("605006581");
 
 
         //Then
         Assert.assertEquals(allPeopleExpected, allPeopleQuantity);
-
-
     }
 }

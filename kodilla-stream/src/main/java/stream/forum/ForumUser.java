@@ -1,6 +1,4 @@
-package com.kodilla.stream.forum;
-
-import com.kodilla.stream.forumuser.Forum;
+package stream.forum;
 
 import java.util.HashSet;
 import java.util.Set;

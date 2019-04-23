@@ -2,6 +2,11 @@ package com.kodilla.stream.sand;
 
 import org.junit.Assert;
 import org.junit.Test;
+import stream.sand.Africa;
+import stream.sand.Asia;
+import stream.sand.Europe;
+import stream.sand.SandStorage;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;

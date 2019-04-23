@@ -1,4 +1,4 @@
-package com.kodilla.stream.world;
+package stream.world;
 
 
 

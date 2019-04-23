@@ -1,7 +1,10 @@
-package com.kodilla.stream.invoice.simple;
+package com.kodilla.stream.simple;
 
 import org.junit.Assert;
 import org.junit.Test;
+import stream.simple.SimpleInvoice;
+import stream.simple.SimpleItem;
+import stream.simple.SimpleProduct;
 
 public class SimpleInvoiceTestSuite {
     @Test

@@ -1,4 +1,4 @@
-package com.kodilla.stream.world;
+package stream.world;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
