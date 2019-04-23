@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.stream.array.ArrayOperationsTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-04-23T17:33:33" hostname="Amanda" time="0.013">
+<testsuite name="com.kodilla.stream.array.ArrayOperationsTestSuite" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-04-23T18:02:28" hostname="Amanda" time="0.012">
   <properties/>
-  <testcase name="testgetAverage" classname="com.kodilla.stream.array.ArrayOperationsTestSuite" time="0.013"/>
-  <system-out><![CDATA[12
+  <testcase name="testgetAverage2" classname="com.kodilla.stream.array.ArrayOperationsTestSuite" time="0.011"/>
+  <testcase name="testgetAverage" classname="com.kodilla.stream.array.ArrayOperationsTestSuite" time="0.001"/>
+  <system-out><![CDATA[0
+12
 13
 14
 2

@@ -19,4 +19,18 @@ public class ArrayOperationsTestSuite {
         // getAverage(int[] numbers) interfejsu ArrayOperations.
         //System.out.println("Średnia: " + ArrayOperations.getAverage(numbers));
     }
+
+    @Test
+    public void testgetAverage2(){
+        //Given
+        int numbers2 [] = {0};
+
+        // wartościami typu int
+
+        //When
+        double expectedAverage2 = 0.0 ;//sprawdź, czy obliczona średnia jest poprawna.
+        //Then
+        Assert.assertEquals(expectedAverage2, ArrayOperations.getAverage(numbers2), 0.1);//wywołać metodę
+        // getAverage(int[] numbers) interfejsu ArrayOperations.
+    }
 }
