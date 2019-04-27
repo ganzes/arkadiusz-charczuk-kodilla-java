@@ -16,7 +16,17 @@ public interface ArrayOperations {
                 .average()
                 .getAsDouble();
     }
+
+
+    static double getAverage2 (int[] numbers2) {
+
+        IntStream.range(0, numbers2.length)
+                .map(x -> numbers2[x])
+                .forEach(System.out::println);
+
+        return IntStream.range(0, numbers2.length)
+                .map(x -> numbers2[x])
+                .average().orElse ( 0 );
+    }
 }
-
-
 

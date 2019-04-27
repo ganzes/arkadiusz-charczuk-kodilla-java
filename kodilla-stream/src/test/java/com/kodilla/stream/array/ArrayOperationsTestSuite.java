@@ -30,7 +30,7 @@ public class ArrayOperationsTestSuite {
         //When
         double expectedAverage2 = 0.0 ;//sprawdź, czy obliczona średnia jest poprawna.
         //Then
-        Assert.assertEquals(expectedAverage2, ArrayOperations.getAverage(numbers2), 0.1);//wywołać metodę
+        Assert.assertEquals(expectedAverage2, ArrayOperations.getAverage2(numbers2), 0.1);//wywołać metodę
         // getAverage(int[] numbers) interfejsu ArrayOperations.
     }
 }
