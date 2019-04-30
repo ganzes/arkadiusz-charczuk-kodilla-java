@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.stream.sand.SandStorageTestSuite" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-04-27T14:31:06" hostname="Amanda" time="0.006">
+<testsuite name="com.kodilla.stream.sand.SandStorageTestSuite" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-04-30T13:53:57" hostname="Amanda" time="0.005">
   <properties/>
   <testcase name="testGetSandBeansQuantity" classname="com.kodilla.stream.sand.SandStorageTestSuite" time="0.003"/>
   <testcase name="testGetSandBeansQuantityWithReduce" classname="com.kodilla.stream.sand.SandStorageTestSuite" time="0.002"/>

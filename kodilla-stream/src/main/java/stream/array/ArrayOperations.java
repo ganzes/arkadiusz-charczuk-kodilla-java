@@ -14,9 +14,8 @@ public interface ArrayOperations {
         return IntStream.range(0,numbers.length)
                 .map(x -> numbers[x])
                 .average()
-                .getAsDouble();
+                .orElse ( 0 );
     }
-
 
     static double getAverage2 (int[] numbers2) {
 
@@ -26,7 +25,8 @@ public interface ArrayOperations {
 
         return IntStream.range(0, numbers2.length)
                 .map(x -> numbers2[x])
-                .average().orElse ( 0 );
+                .average()
+                .orElse ( 0 );
     }
 }
 
