@@ -1,11 +1,17 @@
 package exception.main;
 
 import exception.io.FileReader;
+import exception.io.FileReaderException;
 
 public class ExceptionModuleRunner {
     public static void main(String[] args) {
 
         FileReader fileReader = new FileReader ();
-        fileReader.readFile ();
+
+        try {
+            fileReader.readFile ();
+        } catch (FileReaderException e) {
+            System.out.println ( "Problem with reading a file!" );
+        }
     }
 }
