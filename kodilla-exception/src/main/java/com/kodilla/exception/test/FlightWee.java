@@ -42,5 +42,19 @@ public class FlightWee {
         }
 
 
+        FlightWee flightWee3 = new FlightWee();
+//z What if... ?
+
+        if(flightWee3 != null) {
+            System.out.println("Nope");
+        } else {
+            try {
+                flightWee3.findFlight ( new Flight ( "Berlin", "Berlin" ) );
+            } catch (RouteNotFoundException e) {
+                System.out.println ( "Flight not found! Try another one!" );
+            } finally {
+                System.out.println ( "Have a nice flight!" );
+            }
+        }
     }
 }
