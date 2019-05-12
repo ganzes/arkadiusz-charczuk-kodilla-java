@@ -11,7 +11,7 @@ public class FlightWee {
         airports.put ( "Los Angeles", false );
         airports.put ( "Sydney", true );
 
-        if (airports.containsKey ( flight.getArrivalAirport ()) && airports.containsKey ( flight.getDepartureAirport ()) && airports.get ( flight.getArrivalAirport () ) && airports.get ( flight.getDepartureAirport () )   ) {
+        if (airports != null && airports.containsKey ( flight.getArrivalAirport ()) && airports.containsKey ( flight.getDepartureAirport ()) && airports.get ( flight.getArrivalAirport () ) && airports.get ( flight.getDepartureAirport () )   ) {
                 System.out.println ( "Good to go!" );
         }
         else {
