@@ -4,53 +4,56 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FlightWee {
-    public void findFlight (Flight flight) throws RouteNotFoundException {
-        Map<String, Boolean> airports = new HashMap<> (  );
+    public void findFlight(Flight flight) throws RouteNotFoundException {
+        Map<String, Boolean> airports = new HashMap<>();
 
-        airports.put ( "New York", true );
-        airports.put ( "Los Angeles", false );
-        airports.put ( "Sydney", true );
+        airports.put("New York", true);
+        airports.put("Los Angeles", false);
+        airports.put("Sydney", true);
 
-        if (airports != null && airports.containsKey ( flight.getArrivalAirport ()) && airports.containsKey ( flight.getDepartureAirport ()) && airports.get ( flight.getArrivalAirport () ) && airports.get ( flight.getDepartureAirport () )   ) {
-                System.out.println ( "Good to go!" );
-        }
-        else {
-            throw new RouteNotFoundException ();
+
+        if (airports.containsKey(flight.getArrivalAirport()) &&
+                airports.containsKey(flight.getDepartureAirport()) &&
+                airports.get(flight.getArrivalAirport()) &&
+                airports.get(flight.getDepartureAirport())) {
+            System.out.println("Good to go!");
+        } else {
+            throw new RouteNotFoundException();
         }
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         FlightWee flightWee = new FlightWee();
 //be bledu
         try {
-            flightWee.findFlight ( new Flight ( "New York", "Sydney" ) );
+            flightWee.findFlight(new Flight("New York", "Sydney"));
         } catch (RouteNotFoundException e) {
-            System.out.println ( "Flight not found! Try another one!" );
+            System.out.println("Flight not found! Try another one!");
         } finally {
-            System.out.println ( "Have a nice flight!" );
+            System.out.println("Have a nice flight!");
         }
 
         FlightWee flightWee2 = new FlightWee();
 //z bledem
         try {
-            flightWee2.findFlight ( new Flight ( "New York", "Los Angeles" ) );
+            flightWee2.findFlight(new Flight("New York", "Los Angeles"));
         } catch (RouteNotFoundException e) {
-            System.out.println ( "Flight not found! Try another one!" );
+            System.out.println("Flight not found! Try another one!");
         } finally {
-            System.out.println ( "Have a nice flight!" );
+            System.out.println("Have a nice flight!");
         }
 
 
         FlightWee flightWee3 = new FlightWee();
 //z What if... ?
 
-             try {
-                flightWee3.findFlight ( new Flight ( "Berlin", "Berlin" ) );
-            } catch (RouteNotFoundException e) {
-                System.out.println ( "Flight not found! Try another one!" );
-            } finally {
-                System.out.println ( "Have a nice flight!" );
-            }
+        try {
+            flightWee3.findFlight(new Flight("Berlin", "Berlin"));
+        } catch (RouteNotFoundException e) {
+            System.out.println("Flight not found! Try another one!");
+        } finally {
+            System.out.println("Have a nice flight!");
+        }
     }
 }
