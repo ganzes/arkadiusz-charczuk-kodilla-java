@@ -11,7 +11,7 @@ public class FlightWee {
         airports.put ( "Los Angeles", false );
         airports.put ( "Sydney", true );
 
-        if (airports.get ( flight.getArrivalAirport () ) && airports.get ( flight.getDepartureAirport () )  ) {
+        if (airports.containsKey ( flight.getArrivalAirport ()) && airports.containsKey ( flight.getDepartureAirport ()) && airports.get ( flight.getArrivalAirport () ) && airports.get ( flight.getDepartureAirport () )   ) {
                 System.out.println ( "Good to go!" );
         }
         else {
@@ -45,16 +45,12 @@ public class FlightWee {
         FlightWee flightWee3 = new FlightWee();
 //z What if... ?
 
-        if(flightWee3 != null) {
-            System.out.println("Nope");
-        } else {
-            try {
+             try {
                 flightWee3.findFlight ( new Flight ( "Berlin", "Berlin" ) );
             } catch (RouteNotFoundException e) {
                 System.out.println ( "Flight not found! Try another one!" );
             } finally {
                 System.out.println ( "Have a nice flight!" );
             }
-        }
     }
 }
