@@ -6,13 +6,16 @@ import java.time.LocalDateTime;
 public class BoughtRequest {
     private User user;
     LocalDateTime boughtTime;
+    private Item item;
 
+    public Item getItem() {
+        return item;
+    }
 
-
-    public BoughtRequest(User user, LocalDateTime boughtTime) {
+    public BoughtRequest(User user, LocalDateTime boughtTime, Item item) {
         this.user = user;
         this.boughtTime = boughtTime;
-
+        this.item = item;
     }
 
     public User getUser() {

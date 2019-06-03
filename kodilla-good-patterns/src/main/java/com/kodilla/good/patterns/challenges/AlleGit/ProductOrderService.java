@@ -14,10 +14,11 @@ public class ProductOrderService {
     }
 
     public BoughtDto process(final BoughtRequest boughtRequest) {
-        boolean isRented = boughtService.bought(boughtRequest.getUser(), boughtRequest.getBoughtTime());
+        boolean isBought = boughtService.bought(boughtRequest.getUser(), boughtRequest.getBoughtTime(),
+                boughtRequest.getItem());
 
-        if(isRented) {
-            informationService.inform(boughtRequest.getUser());
+        if(isBought) {
+            informationService.inform(boughtRequest.getUser(), boughtRequest.getItem());
             boughtRepository.createBought(boughtRequest.getUser(), boughtRequest.getBoughtTime());
             return new BoughtDto(boughtRequest.getUser(), true);
         } else {
