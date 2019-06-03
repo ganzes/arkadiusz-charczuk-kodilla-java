@@ -1,0 +1,12 @@
+package com.kodilla.good.patterns.challenges.Example2;
+
+import com.kodilla.good.patterns.challenges.Example.InformationService;
+import com.kodilla.good.patterns.challenges.Example.User;
+
+public class InnaMetoda implements InformationService {
+
+    @Override
+    public void inform(User user) {
+        System.out.println("Cos innego");
+    }
+}
