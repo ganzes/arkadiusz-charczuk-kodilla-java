@@ -1,9 +1,8 @@
-package com.kodilla.good.patterns.challenges.AlleGit;
+package com.kodilla.good.patterns.challenges.Food2Door;
 
 import java.time.LocalDateTime;
 
-public class ItemBoughtRepository implements BoughtRepository {
-
+public class GlutenFreeShopBoughtRepository implements BoughtRepository {
     @Override
     public boolean createBought(User user, LocalDateTime boughtTime) {
         return false;
