@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class BoughtRequest {
     private User user;
-    LocalDateTime boughtTime;
+    private LocalDateTime boughtTime;
     private Item item;
 
     public Item getItem() {

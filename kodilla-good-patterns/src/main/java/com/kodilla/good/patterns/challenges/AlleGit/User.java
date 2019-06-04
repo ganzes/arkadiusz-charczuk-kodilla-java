@@ -1,9 +1,9 @@
 package com.kodilla.good.patterns.challenges.AlleGit;
 
 public class User {
-    String nickName;
-    String userName;
-    String userLastName;
+    private String nickName;
+    private String userName;
+    private String userLastName;
 
     public User(String nickName, String userName, String userLastName) {
         this.nickName = nickName;

@@ -2,7 +2,7 @@ package com.kodilla.good.patterns.challenges.AlleGit;
 
 public class BoughtDto {
     public User user;
-    public boolean isBought;
+    private boolean isBought;
 
     public BoughtDto(User user, boolean isBought) {
         this.user = user;
@@ -13,7 +13,5 @@ public class BoughtDto {
         return user;
     }
 
-    public boolean isBought() {
-        return isBought;
-    }
+
 }

@@ -1,9 +1,9 @@
 package com.kodilla.good.patterns.challenges.AlleGit;
 
 public class Item {
-    String itemName;
-    String itemCategory;
-    int itemPrice;
+    private String itemName;
+    private String itemCategory;
+    private int itemPrice;
 
     public String getItemName() {
         return itemName;

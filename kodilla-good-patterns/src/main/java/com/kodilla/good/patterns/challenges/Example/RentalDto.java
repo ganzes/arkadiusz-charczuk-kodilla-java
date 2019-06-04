@@ -2,7 +2,7 @@ package com.kodilla.good.patterns.challenges.Example;
 
 public class RentalDto {
     public User user;
-    public boolean isRented;
+    private boolean isRented;
 
     public RentalDto(User user, boolean isRented) {
         this.user = user;
