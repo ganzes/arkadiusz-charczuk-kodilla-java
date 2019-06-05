@@ -31,8 +31,9 @@ public class BoughtRequestRetriever {
         User user = new User("Master B", "Bud", "Bundy");
         LocalDateTime boughtTime = LocalDateTime.now();
 
-        Order order = new Order("Water",1, 1);
+        Order order = new Order("Water",1, 0);
 
         return new BoughtRequest(user, boughtTime, order);
+
     }
 }

@@ -12,8 +12,6 @@ public class ProductOrderService {
         this.boughtRepository = boughtRepository;
     }
 
-
-
     public BoughtDto process(final BoughtRequest boughtRequest) {
         boolean isBought = boughtService.bought(boughtRequest.getUser(), boughtRequest.getBoughtTime(),
                 boughtRequest.getOrder());

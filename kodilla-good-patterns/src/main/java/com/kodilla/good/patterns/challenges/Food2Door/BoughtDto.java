@@ -4,6 +4,7 @@ public class BoughtDto {
     public User user;
     private boolean isBought;
 
+
     public BoughtDto(User user, boolean isBought) {
         this.user = user;
         this.isBought = isBought;
