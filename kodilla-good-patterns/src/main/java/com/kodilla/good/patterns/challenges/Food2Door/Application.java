@@ -5,13 +5,13 @@ public class Application {
     public static void main(String[] args) {
 
         BoughtRequestRetriever boughtRequestRetrieverExtraFood = new BoughtRequestRetriever();
-        BoughtRequest boughtRequest = boughtRequestRetrieverExtraFood.retrieveExtraFood();
+        BoughtRequest boughtRequestExtraFood = boughtRequestRetrieverExtraFood.retrieveExtraFood();
 
         ProductOrderService orderServiceExtraFood = new ProductOrderService(new MailService(),
                 new ExtraFoodShopBoughtService(),
                 new ExtraFoodBoughtRepository());
 
-        orderServiceExtraFood.process(boughtRequest);
+        orderServiceExtraFood.process(boughtRequestExtraFood);
 
 
         BoughtRequestRetriever boughtRequestRetrieverHealthyShop = new BoughtRequestRetriever();

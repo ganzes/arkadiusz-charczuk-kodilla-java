@@ -1,7 +1,7 @@
 package com.kodilla.good.patterns.challenges.Food2Door;
 
 public class BoughtDto {
-    public User user;
+    private User user;
     private boolean isBought;
 
 
