@@ -1,6 +1,6 @@
 package com.kodilla.stream.lambda;
 
-public class ExecuteSaySomething implements Executor {
+public class ExecuteSaySomething implements com.kodilla.stream.lambda.Executor {
 
     @Override
     public void process() {
