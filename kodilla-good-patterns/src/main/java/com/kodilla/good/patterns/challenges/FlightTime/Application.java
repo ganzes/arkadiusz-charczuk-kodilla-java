@@ -4,10 +4,6 @@ public class Application {
 
     public static void main(String[] args) {
 
-        String userChosenAirportsExample1;
-        String userChosenAirportsExample2;
-        String userChosenAirportsExample3;
-
         FlightListOfAirports currentlyAvaliable = new FlightListOfAirports();
 
         FlightProcessingData userChoses = new FlightProcessingData();
@@ -16,15 +12,11 @@ public class Application {
 
         FlightAlternativeListOfAirports currentlyAvaliableAlternative = new FlightAlternativeListOfAirports();
 
-        userChosenAirportsExample1 = "Warszawa";
-        userChosenAirportsExample2 = "Wroclaw";
-        userChosenAirportsExample3 = "Gdansk";
-
 //from city
-        System.out.println(flightMethods.fromCity(userChosenAirportsExample1, currentlyAvaliable, userChoses));
+        System.out.println(flightMethods.fromCity("Warszawa", currentlyAvaliable, userChoses));
 //to city
-        System.out.println(flightMethods.toCity(userChosenAirportsExample2, currentlyAvaliable, userChoses));
+        System.out.println(flightMethods.toCity("Wroclaw", currentlyAvaliable, userChoses));
 //avaiable alternative connections like for VIP users:
-        System.out.println(flightMethods.alternativeFlight(userChosenAirportsExample3, userChoses, currentlyAvaliableAlternative));
+        System.out.println(flightMethods.alternativeFlight("Gdansk", userChoses, currentlyAvaliableAlternative));
     }
 }
