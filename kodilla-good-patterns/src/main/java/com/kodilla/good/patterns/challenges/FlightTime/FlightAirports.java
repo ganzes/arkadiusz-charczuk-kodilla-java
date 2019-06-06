@@ -5,13 +5,14 @@ public class FlightAirports {
     private String numberOfFlight;
     private String fromCity;
     private String toCity;
-    private boolean connection;
+    private boolean isAvaiable;
 
-    public FlightAirports(String numberOfFlight, String fromCity, String toCity, boolean connection) {
+
+    public FlightAirports(String numberOfFlight, String fromCity, String toCity, boolean isAvaiable) {
         this.numberOfFlight = numberOfFlight;
         this.fromCity = fromCity;
         this.toCity = toCity;
-        this.connection = connection;
+        this.isAvaiable = isAvaiable;
     }
 
     public String getNumberOfFlight() {
@@ -26,7 +27,7 @@ public class FlightAirports {
         return toCity;
     }
 
-    public boolean isConnection() {
-        return connection;
+    public boolean isAvaiable() {
+        return isAvaiable;
     }
 }

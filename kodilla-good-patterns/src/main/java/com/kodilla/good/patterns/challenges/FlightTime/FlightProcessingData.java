@@ -20,11 +20,14 @@ public class FlightProcessingData {
                 .collect(Collectors.toList());
     }
 
-    public List<FlightAirports> avaliableFlightsAlternativeConnections (ArrayList<FlightAirports> flightListOfAirports, Boolean userChosenAirportsExample3) {
+
+    public List<FlightAlternative> avaliableFlightsAlternativeConnections (ArrayList<FlightAlternative> flightListOfAirports, String userChosenAirportsExample3) {
 
         return flightListOfAirports.stream()
-                .filter(x -> x.isConnection())
+                .filter(x -> x.getToCityAlternative().equals(userChosenAirportsExample3))
                 .collect(Collectors.toList());
     }
+
+
 
 }
