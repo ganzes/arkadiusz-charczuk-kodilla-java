@@ -5,7 +5,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class ForumUser {
     private String username;
-
+//inicjowane w konstruktorze wartością
+// "John Smith" (nie przekazuj tego jako parametr - wpisz to w konstruktorze "na sztywno").
     public ForumUser() {
         username = "John Smith";
     }
@@ -13,4 +14,5 @@ public class ForumUser {
     public String getUsername() {
         return username;
     }
+
 }
