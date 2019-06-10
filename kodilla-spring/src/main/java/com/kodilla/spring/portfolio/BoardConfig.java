@@ -14,15 +14,14 @@ public class BoardConfig {
     @Qualifier("listToDoList")
     TaskList taskList;
 
-    @Bean
+    @Bean(name = "board")
     public Board getBoard(){
-        return new Board(taskList);
+        return new Board(getToDoList(),getInProgressList(), getDoneList());
     }
 
     @Bean(name = "listToDoList")
     @Scope("prototype")
     public TaskList getToDoList(){
-        //return new Board(new TaskList(new ArrayList<>()));
        return new TaskList(new ArrayList<>());
     }
 
@@ -37,7 +36,5 @@ public class BoardConfig {
     public TaskList getDoneList(){
         return new TaskList(new ArrayList<>());
     }
-
-
 
 }

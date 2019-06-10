@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.spring.portfolio.BoardTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-06-10T18:11:55" hostname="Amanda" time="0.013">
+<testsuite name="com.kodilla.spring.portfolio.BoardTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-06-10T19:30:14" hostname="Amanda" time="0.009">
   <properties/>
-  <testcase name="testTaskAdd" classname="com.kodilla.spring.portfolio.BoardTestSuite" time="0.013"/>
-  <system-out><![CDATA[To do list: []
-In progress list: []
-Done list: []
-]]></system-out>
+  <testcase name="testTaskAdd" classname="com.kodilla.spring.portfolio.BoardTestSuite" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
