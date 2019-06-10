@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class BoardTestSuite {
     @Test
-    public void testTaskAdd(){
+    public void testTaskAdd() {
         //Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(BoardConfig.class);

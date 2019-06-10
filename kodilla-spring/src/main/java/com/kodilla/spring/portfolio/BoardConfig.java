@@ -12,29 +12,36 @@ import java.util.ArrayList;
 public class BoardConfig {
     @Autowired
     @Qualifier("listToDoList")
-    TaskList taskList;
+    TaskList listToDoList;
+
+    @Autowired
+    @Qualifier("inProgressList")
+    TaskList inProgressList;
+
+    @Autowired
+    @Qualifier("doneList")
+    TaskList doneList;
 
     @Bean(name = "board")
-    public Board getBoard(){
-        return new Board(getToDoList(),getInProgressList(), getDoneList());
+    public Board getBoard() {
+        return new Board(listToDoList,inProgressList,doneList);
     }
 
     @Bean(name = "listToDoList")
     @Scope("prototype")
-    public TaskList getToDoList(){
-       return new TaskList(new ArrayList<>());
+    public TaskList getToDoList() {
+        return new TaskList(new ArrayList<>());
     }
 
     @Bean(name = "inProgressList")
     @Scope("prototype")
-    public TaskList getInProgressList(){
+    public TaskList getInProgressList() {
         return new TaskList(new ArrayList<>());
     }
 
     @Bean(name = "doneList")
     @Scope("prototype")
-    public TaskList getDoneList(){
+    public TaskList getDoneList() {
         return new TaskList(new ArrayList<>());
     }
-
 }
