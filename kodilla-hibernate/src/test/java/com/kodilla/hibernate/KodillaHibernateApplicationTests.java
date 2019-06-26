@@ -1,4 +1,4 @@
-package com.kodilla.kodilla.hibernate;
+package com.kodilla.hibernate;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
