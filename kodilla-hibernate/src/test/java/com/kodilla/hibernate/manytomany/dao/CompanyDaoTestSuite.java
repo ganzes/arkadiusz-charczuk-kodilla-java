@@ -10,14 +10,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
-    public void testSaveManyToMany(){
+    public void testSaveManyToMany() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -48,9 +52,9 @@ public class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
 
         //Then
-        Assert.assertNotEquals(0,softwareMachineId);
-        Assert.assertNotEquals(0,dataMaestersId);
-        Assert.assertNotEquals(0,greyMatterId);
+        Assert.assertNotEquals(0, softwareMachineId);
+        Assert.assertNotEquals(0, dataMaestersId);
+        Assert.assertNotEquals(0, greyMatterId);
 
         //CleanUp
         try {
@@ -58,9 +62,36 @@ public class CompanyDaoTestSuite {
             companyDao.deleteById(dataMaestersId);
             companyDao.deleteById(greyMatterId);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             //do nothing
         }
     }
 
+    @Test
+    public void testRetrieveLastNameX() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        employeeDao.save(johnSmith);
+        //When
+        int nameID = johnSmith.getId();
+        List<Employee> retrieveLastNameX = employeeDao.retrieveLastNameX("Smith");
+        //Then
+        Assert.assertEquals(1, retrieveLastNameX.size());
+        //CleanUp
+        employeeDao.deleteById(nameID);
+    }
+
+    @Test
+    public void testRetrieveCompany3X() {
+        //Given
+        Company dataMaesters = new Company("Data Maesters");
+        companyDao.save(dataMaesters);
+        //When
+        int dataMaestersId = dataMaesters.getId();
+        List<Company> retrieveCompany3X = companyDao.retrieveCompany3X("Data Maesters");
+        //Then
+        Assert.assertEquals(1, retrieveCompany3X.size());
+        //CleanUp
+        companyDao.deleteById(dataMaestersId);
+    }
 }
