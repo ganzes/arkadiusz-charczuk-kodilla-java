@@ -88,7 +88,7 @@ public class CompanyDaoTestSuite {
         companyDao.save(dataMaesters);
         //When
         int dataMaestersId = dataMaesters.getId();
-        List<Company> retrieveCompany3X = companyDao.retrieveCompany3X("Data Maesters");
+        List<Company> retrieveCompany3X = companyDao.retrieveCompany3X("Dat");
         //Then
         Assert.assertEquals(1, retrieveCompany3X.size());
         //CleanUp
