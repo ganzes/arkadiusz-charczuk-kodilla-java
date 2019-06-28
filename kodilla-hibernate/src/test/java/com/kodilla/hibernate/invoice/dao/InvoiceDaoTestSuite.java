@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,30 +18,46 @@ public class InvoiceDaoTestSuite {
     InvoiceDao invoiceDao;
 
     @Test
-    public void testInvoiceDaoSave(){
+    public void testInvoiceDaoSave() {
         //Given
-        Product rTV = new Product("RTV");
-        Product fantasyBooks = new Product("Fantasy Books");
-        Product bluRayMovies = new Product("BluRay Movies");
+        Product productRTV = new Product("RTV");
+        Product productFantasyBooks = new Product("Fantasy Books");
+        Product productBluRayMovies = new Product("BluRay Movies");
 
-        Item blenders = new Item(rTV, new BigDecimal (100), 10, new BigDecimal (200));
-        Item conan = new Item(fantasyBooks, new BigDecimal (10), 5, new BigDecimal (20));
-        Item avengers = new Item(bluRayMovies, new BigDecimal (500), 6, new BigDecimal (1000));
+        Item itemBlenders = new Item(new BigDecimal(100), 10, new BigDecimal(200));
+        Item itemConan = new Item(new BigDecimal(10), 5, new BigDecimal(20));
+        Item itemAvengers = new Item(new BigDecimal(500), 6, new BigDecimal(1000));
+
+        productRTV.getItems().add(itemBlenders);
+        productFantasyBooks.getItems().add(itemConan);
+        productBluRayMovies.getItems().add(itemAvengers);
+
+        itemBlenders.setProduct(productRTV);
+        itemConan.setProduct(productFantasyBooks);
+        itemAvengers.setProduct(productBluRayMovies);
 
         //When
-        Invoice invoice = new Invoice("First");
-        invoice.getItems().add(avengers);
-        invoice.getItems().add(conan);
-        invoice.getItems().add(blenders);
+        Invoice invoice = new Invoice("One");
+        invoice.getItems().add(itemBlenders);
+        invoice.getItems().add(itemConan);
+        invoice.getItems().add(itemAvengers);
+
+        itemBlenders.setInvoice(invoice);
+        itemConan.setInvoice(invoice);
+        itemAvengers.setInvoice(invoice);
 
         invoiceDao.save(invoice);
 
         int id = invoice.getId();
 
         //Then
-        Assert.assertNotEquals(0,id);
+        Assert.assertNotEquals(0, id);
 
         //CleanUp
-        invoiceDao.deleteById(id);
+        try {
+            invoiceDao.deleteById(id);
+        } catch (Exception e) {
+            //do nothing
+        }
     }
 }
