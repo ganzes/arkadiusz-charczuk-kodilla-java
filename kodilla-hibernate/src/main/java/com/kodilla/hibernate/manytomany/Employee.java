@@ -20,7 +20,6 @@ public class Employee {
     private List<Company> companies = new ArrayList<>();
 
     public Employee(){
-
     }
 
     public Employee(String firstName, String lastName) {

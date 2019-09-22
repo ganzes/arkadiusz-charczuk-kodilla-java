@@ -15,7 +15,6 @@ public class Invoice {
     private List<Item> items = new ArrayList<>();
 
     public Invoice(){
-
     }
 
     public Invoice(String number) {

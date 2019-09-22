@@ -33,6 +33,7 @@ public class InvoiceDaoTestSuite {
         productBluRayMovies.getItems().add(itemAvengers);
 
         itemBlenders.setProduct(productRTV);
+
         itemConan.setProduct(productFantasyBooks);
         itemAvengers.setProduct(productBluRayMovies);
 
