@@ -12,6 +12,11 @@ import java.util.List;
         resultClass = Company.class
 )
 
+@NamedQuery(
+        name = "Company.retrieveCompanyCSL",
+        query = "FROM Company WHERE COMPANY_NAME LIKE CONCAT('%',:COMPANY_NAME,'%')"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
