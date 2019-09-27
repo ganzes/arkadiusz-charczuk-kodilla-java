@@ -35,18 +35,10 @@ public class ReverseNumber {
 
     public int reverseNumber(int entryNumber){
         int result = entryNumber;
-        /*for(int i = 0; result > 0; i++){
-            int rex = i + 1;
-            System.out.println(rex);
-        }*/
-
         String a = String.valueOf(entryNumber);
-
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(a);
         stringBuilder.reverse();
-
-
 
         return result;
     }
