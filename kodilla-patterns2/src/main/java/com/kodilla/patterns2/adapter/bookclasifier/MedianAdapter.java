@@ -8,9 +8,9 @@ import java.util.*;
 
 public class MedianAdapter extends MedianAdaptee implements Classifier {
     @Override
-    public int publicationYearMedian(Set<com.kodilla.patterns2.adapter.bookclasifier.librarya.Book> books) {
+    public int publicationYearMedian(Set<com.kodilla.patterns2.adapter.bookclasifier.librarya.Book> booksA) {
         Map<BookSignature, com.kodilla.patterns2.adapter.bookclasifier.libraryb.Book> booksB = new HashMap<>();
-        for (com.kodilla.patterns2.adapter.bookclasifier.librarya.Book book : books) {
+        for (com.kodilla.patterns2.adapter.bookclasifier.librarya.Book book : booksA) {
             booksB.put(new BookSignature(book.getSignature()),
                     new Book(book.getAuthor(), book.getTitle(), book.getPublicationYear()));
         }
@@ -18,9 +18,9 @@ public class MedianAdapter extends MedianAdaptee implements Classifier {
     }
 
     @Override
-    public int averagePublicationYearClassifier(Set<com.kodilla.patterns2.adapter.bookclasifier.librarya.Book> books) {
+    public int averagePublicationYearClassifier(Set<com.kodilla.patterns2.adapter.bookclasifier.librarya.Book> booksA) {
         Map<BookSignature, com.kodilla.patterns2.adapter.bookclasifier.libraryb.Book> booksB = new HashMap<>();
-        for (com.kodilla.patterns2.adapter.bookclasifier.librarya.Book book : books) {
+        for (com.kodilla.patterns2.adapter.bookclasifier.librarya.Book book : booksA) {
             booksB.put(new BookSignature(book.getSignature()),
                     new Book(book.getAuthor(), book.getTitle(), book.getPublicationYear()));
         }
